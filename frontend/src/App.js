@@ -8,9 +8,14 @@ import Error from './Layout/Error.jsx';
 
 import BackgroundImage from './assets/background.jpg';
 import Camera from './assets/camera.svg';
+import { useEffect } from 'react';
 
 function App() {
   const { isAuth } = useUser();
+
+  useEffect(() => {
+    console.log('Is Auth', isAuth);
+  }, [isAuth])
 
   return (
     <div className="w-full h-[100vh] relative overflow-hidden flex justify-center items-center">
@@ -22,7 +27,7 @@ function App() {
       <div className="w-full h-full bg-black opacity-60 fixed z-10"></div>
 
       {/* Main Screen */}
-      <div className="relative z-20 w-[80%] md:w-[30%] lg:w-[20%] h-[80%] mobile-frame overflow-hidden flex justify-center items-start">
+      <div className="relative z-20 w-[80%] md:w-[30%] lg:w-[20%] h-[85%] mobile-frame overflow-hidden flex justify-center items-start">
         <img src={Camera} alt="camera" className='absolute z-30 top-2' width={70} />
         <Routes>
           {isAuth ? (

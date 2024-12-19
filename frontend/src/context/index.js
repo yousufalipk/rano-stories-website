@@ -6,7 +6,7 @@ export const useUser = () => useContext(UserContext);
 
 export const UserProvider = (props) => {
 
-    const [isAuth, setAuth] = useState(false);
+    const [isAuth, setAuth] = useState(true);
 
     return (
         <UserContext.Provider value={{
