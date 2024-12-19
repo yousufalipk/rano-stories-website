@@ -31,8 +31,7 @@ exports.createUser = async (req, res) => {
             fname: fname,
             lname: lname,
             email: email,
-            password: hashedPassword,
-            userType: 'user'
+            password: hashedPassword
         })
 
         let accessToken, refreshToken;

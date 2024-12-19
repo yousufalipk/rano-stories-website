@@ -20,3 +20,20 @@
   border: 6px solid #000000;
   border-radius: 6vh;
 }
+
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slow-spin {
+  color: purple !important;
+  animation: slow-spin 2s linear infinite;
+}

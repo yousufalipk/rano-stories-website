@@ -11,12 +11,15 @@ import MobileBg from './assets/mobileBg.webp';
 import Camera from './assets/camera.svg';
 import { useEffect } from 'react';
 
+import { LuLoader } from "react-icons/lu";
+
 function App() {
-  const { isAuth } = useUser();
+  const { isAuth, loader } = useUser();
 
   useEffect(() => {
     console.log('Is Auth', isAuth);
-  }, [isAuth])
+    console.log('Is Auth', loader);
+  }, [isAuth, loader])
 
   return (
     <div className="w-full h-[100vh] relative overflow-hidden flex justify-center items-center">
@@ -42,16 +45,28 @@ function App() {
           width={70}
         />
         {/* Content Section */}
-        <div className="absolute inset-0 z-40 flex flex-col p-2 rounded-3xl">
-          <Routes>
-            {isAuth ? (
-              <Route path="/" element={<Authorized />} />
-            ) : (
-              <Route path="/" element={<UnAuthorized />} />
-            )}
-            <Route path="*" element={<Error />} />
-          </Routes>
-        </div>
+        {loader ? (
+          <>
+            <div className="w-full h-full flex justify-center items-center absolute z-50 top-0 left-0">
+              <LuLoader
+                className="slow-spin w-20 h-20 opacity-60"
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 z-40 flex flex-col p-2 rounded-3xl">
+              <Routes>
+                {isAuth ? (
+                  <Route path="/" element={<Authorized />} />
+                ) : (
+                  <Route path="/" element={<UnAuthorized />} />
+                )}
+                <Route path="*" element={<Error />} />
+              </Routes>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
