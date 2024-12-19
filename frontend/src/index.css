@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  color: white;
+  font-family: cursive, sans-serif;
+}
+
+.Rano-heading {
+  font-family: "Henny Penny", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .mobile-frame {
-    border: 6px solid #000000;
-    border-radius: 6vh;
+  border: 6px solid #000000;
+  border-radius: 6vh;
 }
