@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mobile-frame {
+    border: 6px solid #000000;
+    border-radius: 6vh;
+}
