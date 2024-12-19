@@ -1,5 +1,5 @@
 const express = require('express');
-const { PORT, FRONTEND_ORIGIN } = require('./Config/env');
+const { PORT } = require('./Config/env');
 const ConnectToDB = require('./Config/db');
 const cors = require('cors');
 
@@ -10,13 +10,7 @@ const app = express();
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ limit: '2mb', extended: true }));
 
-app.use(
-    cors({
-        origin: FRONTEND_ORIGIN || '*',
-        optionsSuccessStatus: 200,
-        credentials: true,
-    })
-);
+app.use(cors());
 
 ConnectToDB();
 
